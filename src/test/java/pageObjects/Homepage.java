@@ -11,43 +11,45 @@ public class Homepage extends BasePage{
 	   public Homepage(WebDriver driver) {
 		super(driver);
 	}
-        //Locating web elements for the scenario 
+        //Locating web elements for the scenario
+	    @FindBy(xpath="//div[@class='logo']/a/img")
+	    public WebElement logoimg;
+	    
 	    @FindBy(xpath="//*[@id='j-slider']/div/div/div/div/div/div/div/div[1]/form/div[1]/select")
-		WebElement clickoption;
+		WebElement selecttype;
 		
 		@FindBy(xpath="//div[@class='service-search col-md-4 col-sm-12 no-padding']//select[@name='phone']")
-		WebElement carselect;
+		WebElement subcategory;
 		
 		@FindBy(xpath="//a[@class='btn']")
-		WebElement button;
+		WebElement goforitbutton;
+		
+		//Checking The Correct page is open or not 
+		public boolean logoimage() {
+			try {
+				return (logoimg.isDisplayed());
+			} catch (Exception e) {
+				return (false);
+			}
+		}
 		
 		//selecting Car from drop down
 		public void selecttype() {
-			clickoption.click();
-			Select car=new Select(clickoption);
+			selecttype.click();
+			Select car=new Select(selecttype);
 			car.selectByVisibleText("Car");
-			try {
-				Thread.sleep(2000);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}
 		
 		//selecting sub category from drop down
 		public void selectcar() {
-			carselect.click();
-			Select cartype=new Select(carselect);
+			subcategory.click();
+			Select cartype=new Select(subcategory);
 			cartype.selectByVisibleText("SUV");
-			try {
-				Thread.sleep(2000);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}
 		
 		//clicking on button
 		public void Go_for_it_Button() {
-			button.click();
+			goforitbutton.click();
 		}	
 	}
 		

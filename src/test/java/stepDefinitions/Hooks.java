@@ -30,11 +30,9 @@ public class Hooks{
    	p=BaseClass.getProperties();
    	driver.get(p.getProperty("appURL"));
    	driver.manage().window().maximize();
-   
-   			
+   		
 	}
 		
-   
    @After
    public void tearDown(Scenario scenario) {
        		

@@ -1,7 +1,6 @@
-Feature: Clicking On Our Centers and Getting Service Adresses By Selecting Different State And City Names
+Feature: Service Address Display
 
-  @smoke
-  Scenario: Successfully Getting Different Car Service Addresses
+  Scenario: Different Car Service Addresses of the State and City
     Given User Navigate Back to Home Page
     When Click On Our Centers
     When User Selects State1 and City1 and Click on Search Button

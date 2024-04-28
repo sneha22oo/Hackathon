@@ -1,7 +1,6 @@
-Feature: Getting Error Message By providing Invalid E-mail ID
+Feature: Error Message Display
 
-  @smoke @regression
-  Scenario: Successfully Getting Error Message
+  Scenario: Invalid Register Credentials
     Given User Click on Register Button
     When User Enters Other Details along with Invalid Email
     And User Click On SignUp Button

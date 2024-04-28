@@ -20,10 +20,13 @@ public class Home_Services {
 
 	@Given("User Opened Website With The URL")
 	public void user_opened_website_With_The_URL() {
-		BaseClass.getLogger().info("Open Doorstepwash Website...");
-		
 		hp=new Homepage(BaseClass.getDriver());
 		cs=new CarService(BaseClass.getDriver());
+		
+		boolean Correctpage=hp.logoimage();
+		
+		Assert.assertEquals(Correctpage, true); 
+		BaseClass.getLogger().info("Opened Doorstepwash Website...");
 	}
 
 	@When("User Select Service Type As {string}")
@@ -43,6 +46,7 @@ public class Home_Services {
 	@When("User Click On {string} Button")
 	public void user_click_on_button(String string) {
 		BaseClass.getLogger().info("Click On 'Go For It' Button...");
+		
 	    hp.Go_for_it_Button();
 	    
 	}
@@ -59,6 +63,7 @@ public class Home_Services {
 	@Then("Captures The Service Name")
 	public void captures_the_service_name() throws IOException {
 		BaseClass.getLogger().info("Capturing Service Name...");
+		
 	    cs.Service();
 		
 	}
@@ -69,5 +74,5 @@ public class Home_Services {
 	    cs.Price();
 	    
 	}
-	}
+}
 

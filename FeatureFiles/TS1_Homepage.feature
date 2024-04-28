@@ -1,7 +1,6 @@
-Feature: Opening CarService Page and Getting Service Names and respective Booking Amount
-   
-  @smoke @functional
-  Scenario: Successfully Getting The Car Service Details
+Feature: Getting Car Service Details
+
+  Scenario: Successfully Getting The Car Service Names and Booking Amount
     Given User Opened Website With The URL
     When User Select Service Type As "Car"
     And User Select SubCategory AS "SUV"

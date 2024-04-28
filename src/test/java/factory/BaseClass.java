@@ -1,15 +1,16 @@
 package factory;
+
 import java.net.URL;
+
+
+import java.time.Duration;
 import java.io.FileReader;
-import org.apache.commons.lang3.RandomStringUtils;
 import java.io.IOException;
 import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -27,7 +28,7 @@ public class BaseClass {
 		{
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			
-			//os
+			//operating system and window 
 			if (getProperties().getProperty("os").equalsIgnoreCase("windows")) {
 			    capabilities.setPlatform(Platform.WIN11);
 			} else if (getProperties().getProperty("os").equalsIgnoreCase("mac")) {
@@ -66,7 +67,7 @@ public class BaseClass {
 				}
 			}
     	 driver.manage().window().maximize();
-		 driver.manage().deleteAllCookies(); 
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 		 
 		 return driver;
 		 
@@ -75,7 +76,6 @@ public class BaseClass {
     public static WebDriver getDriver() {
 			return driver;
 		}
-    
     
     public static Properties getProperties() throws IOException
 	{		 
@@ -90,22 +90,6 @@ public class BaseClass {
 	{		 
 		logger=LogManager.getLogger(); //Log4j
 		return logger;
-	}
-    
-    public static void scrollToElement(WebElement element) {
-   	 JavascriptExecutor j = (JavascriptExecutor) getDriver();
-   	 j.executeScript("arguments[0].scrollIntoView(true);",element);
-    }
-    
-    public static void clickElement(WebElement element) {
-   	 JavascriptExecutor j = (JavascriptExecutor) getDriver();
-   	 j.executeScript("arguments[0].click();", element);
-    }
-    public static String randomeString()
-	{
-		String generatedString=RandomStringUtils.randomAlphabetic(5);
-		return generatedString;
-		
 	}
 }
 

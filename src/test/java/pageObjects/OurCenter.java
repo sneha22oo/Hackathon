@@ -29,7 +29,7 @@ public class OurCenter extends BasePage {
 		exc=new excelutiles(file1);
 	}	
 	
-	//locating web elements for the scenario
+	    //locating web elements for the scenario
 	    @FindBy(xpath="//div[@class='logo']/a/img")
 	    public WebElement Logo;
 		
@@ -47,6 +47,7 @@ public class OurCenter extends BasePage {
 		
 		@FindBy(xpath="//div[@id='search-list-container']//div[@class='store-heading']")
 		public List<WebElement> state_city;
+		
 		
 		//Navigating back to home page
 		public void Navigate() {
@@ -74,18 +75,17 @@ public class OurCenter extends BasePage {
 					
 			Select city_name=new Select(selectcity);
 			city_name.selectByVisibleText(City);
+			
 					
 			js.executeScript("arguments[0].click()",search);
 			
 			System.out.println("Service Address Results For Karnataka - Mysuru : ");
-					
 			try {
 				Thread.sleep(2000);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
-					
-			js.executeScript("window.scrollBy(0,700)");
+			}		
+			js.executeScript("window.scrollBy(0,500)");
 					
 		}
 		
@@ -105,18 +105,17 @@ public class OurCenter extends BasePage {
 			Select city_name=new Select(selectcity);
 			city_name.selectByVisibleText(City);
 			
+			
 			//search.click();
 			js.executeScript("arguments[0].click()",search);
 			
 			System.out.println("Service Address Results For Delhi - Delhi : ");
-			
 			try {
 				Thread.sleep(3000);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			js.executeScript("window.scrollBy(0,700)");
+			js.executeScript("window.scrollBy(0,500)");
 			
 		}
 		
@@ -127,6 +126,7 @@ public class OurCenter extends BasePage {
 			
 			Select state_name=new Select(selectstate);
 			state_name.selectByVisibleText(State);
+			
 			try {
 				Thread.sleep(2000);
 			} catch (Exception e) {
@@ -136,17 +136,17 @@ public class OurCenter extends BasePage {
 			Select city_name=new Select(selectcity);
 			city_name.selectByVisibleText(City);
 			
+			
+			
 			js.executeScript("arguments[0].click()",search);
 			
 			System.out.println("Service Address Results For Telangana - Hyderabad : ");
-			
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(2000);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			js.executeScript("window.scrollBy(0,700)");
+			js.executeScript("window.scrollBy(0,500)");
 			
 		}
 

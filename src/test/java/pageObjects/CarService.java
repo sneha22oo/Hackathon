@@ -3,6 +3,7 @@ package pageObjects;
 import java.io.IOException;
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,10 +14,12 @@ public class CarService extends BasePage{
 	
 	String file=System.getProperty("user.dir")+"\\testData\\Outputdata.xlsx";
 	excelutiles ex;
+	JavascriptExecutor js;
 	
 	 public CarService(WebDriver driver) {
 		super(driver);
 		ex=new excelutiles(file);
+		js=(JavascriptExecutor)driver;
 	}
 	 
 		String name;
@@ -53,6 +56,7 @@ public class CarService extends BasePage{
 					e.printStackTrace();
 				}
 	    	}
+	    	js.executeScript("window.scrollBy(0,500)");
 	    }    	
         
 	    //capturing service amount
